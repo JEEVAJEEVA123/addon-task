@@ -1,0 +1,13 @@
+mysql> create table students(
+    -> student_id int primary key,
+    -> name varchar(50),
+    -> marks int);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> insert into students values(1,'sneha',85),
+    -> (2,'sarika',78),
+    -> (3,'suresh',92),
+    -> (4,'ramya',90),
+    -> (5,'aravind',95);
+Query OK, 5 rows affected (0.04 sec)
+Records: 5  Duplicates: 0  Warnings: 
