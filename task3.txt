@@ -1,21 +1,25 @@
-import java.util.Scanner;
-
-public class LeapYear {
-    
-    static boolean isLeap(int year) {
-        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.print("Enter year: ");
-        int year = sc.nextInt();
-        
-        if (isLeap(year)) {
-            System.out.println(year + " is a Leap Year");
-        } else {
-            System.out.println(year + " is not a Leap Year");
+class SleepJoinExample extends Thread {
+    public void run() {
+        for (int i = 1; i <= 3; i++) {
+            System.out.println(Thread.currentThread().getName() + ": " + i);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
         }
+    }
+public static void main(String[] args) {
+        SleepJoinExample t1 = new SleepJoinExample();
+        SleepJoinExample t2 = new SleepJoinExample();
+        
+        t1.start();
+        try {
+            t1.join(); 
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        t2.start();
     }
 }
